@@ -4,6 +4,13 @@ import bcrypt from "bcrypt";
 
 const userSchema = new Schema(
     {
+        username: {
+            type: String,
+            required: true,
+            unique: true,
+            lowercase: true,
+            trim: true,
+        },
         email: {
             type: String,
             required: true,
@@ -23,6 +30,18 @@ const userSchema = new Schema(
         coverImage: {
             type: String // clourdnary url
         },
+        bookings: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Booking"
+            }
+        ],
+        wishlist: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Package"
+            }
+        ],
         password: {
             type:String,
             required: [true, "Password is required"]
