@@ -17,11 +17,9 @@ app.use(express.static("public"))
 // routes import 
 
 import userRouter from "./routes/user.routes.js";
-import questionRouter from "./routes/question.routes.js";
 
 // routes declaration
 app.use("/api/v1/users", userRouter);
-// app.use("/api/v1/questions", questionRouter);
 
 // http://localhost:3000/api/v1/users/register
 
