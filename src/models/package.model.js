@@ -1,12 +1,11 @@
 import mongoose, {Schema} from "mongoose";
-import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
 
 const packageSchema = new Schema(
     {
         title: {
             type: String,
             required: true,
+            unique: true
         },
         description: {
             type: String,
@@ -24,11 +23,9 @@ const packageSchema = new Schema(
             type: String,
             required: true,
         },
-        thumbnail: {
-            type: String
-        },
-        images: {
-            type: String
+        packageImage: {
+            type: String,
+            required: true
         },
         reviews: [
             {
