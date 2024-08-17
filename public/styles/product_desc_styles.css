@@ -108,7 +108,16 @@ main {
 .desc {
     background-color: rgba(0.7, 0.7, 0.7, 0.1);
     justify-content: center;
-    
+    border-radius: 20px;
+    /* padding: 2px; */
+}
+
+.desc p {
+    padding: 8px;
+}
+
+.desc h4 {
+    padding: 4px;
 }
 
 .destination-list img {
@@ -160,4 +169,20 @@ footer {
     border-top: 1px solid #ddd;
     font-size: 0.9em;
     color: #666;
+}
+
+.explore-btn {
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.explore-btn:hover {
+    background-color: #0056b3;
 }
