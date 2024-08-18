@@ -1,0 +1,793 @@
+header{
+    width: 80%;
+    height: 95vh;
+   
+    margin:auto;
+}
+nav{
+    width: 95%;
+    height: 7%;
+    font-size:30px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+}
+nav h2{
+    text-shadow: 2px 2px 3px rgb(204, 201, 201);
+}
+
+header nav ul{
+    display:flex;
+    list-style:none;
+    font-size:20px;
+}
+header nav button
+{
+    background-color: black;
+    font-size:16px;
+    border-radius:20px;
+    padding:10px 20px;
+    color:white;
+    cursor:pointer;
+    transition:0.3s linear;
+}
+header nav button:hover{
+    background:gray;
+}
+header nav ul li a{
+    padding: 10px 25px;
+    
+    
+    }
+header nav ul li a{
+color: black;
+text-decoration: none;
+font-size:20px;
+font-weight:bold;
+transition: 0.5s;
+}
+header nav ul li a:hover{
+   
+color: rgb(26, 19, 19);
+text-shadow: 0px 2px 3px gray;
+}
+header .content
+{
+    position:relative;
+    width:100%;
+    height: 80%;
+    
+}
+header .content::before
+{
+    content: '';
+    position:absolute;
+    width: 100%;
+    height:80%;
+   border-radius:10px;
+    background-image:url("images/navimage.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    z-index:-1; /*to make the image behind the content*/
+}
+header .content .cont_box
+{
+       width:500px;
+       height:auto;
+       color: rgb(17, 16, 16);
+       padding:30px;
+
+}
+header .content .cont_box h1
+{
+    line-height: 40px;
+    font-weight:800px;
+    color:white;
+    text-shadow: 2px 2px 3px black;
+    margin:0px;
+}
+header .content .cont_box p
+{
+   
+    font-size:20px;
+    font-weight:700;
+    font-style:italic;
+    color:rgb(249, 244, 244);
+}
+header .content .cont_box button{
+    margin:20px;
+    padding:10px 20px;
+    border-radius:20px;
+   font-size:16px;
+    background-color:black;
+    color:white;
+    outline:none;
+    cursor:pointer;
+    transition: 0.3s;
+}
+header .content .cont_box input[type="button"] :hover{
+    background-color:rgb(238, 228, 228);
+    color:black;
+    border: 2px solid grey
+}
+header .trip_box
+{
+    position:relative;
+    width:94%;
+    height: auto;
+    margin:auto;
+    
+}
+header .trip_box .search_box
+{
+  position:absolute;
+  top:0;
+  left:0;
+  width:60%;
+  height:70px;
+  display:flex;
+  align-items: center;
+    justify-content:center;
+    background-color:white;
+   padding: 10px 20px;
+    border-radius:5px;
+    box-shadow: 0px 10px 25px rgb(114,114,114);
+    z-index: 1;
+}
+header .content .trip_box .search_box .card
+{
+      width:200px;
+      height:100%;
+     
+}
+
+header .content .trip_box .search_box .card h4
+{
+    font-size: 26px;
+    font-weight: 600;
+    margin:0px;
+}
+header .content .trip_box .search_box .card h4 .bi
+{
+    transition:0.2s linear;
+    position: absolute;
+    font-size: 13px;
+    margin: 3px 0px 0px 5px;
+    
+}
+
+header .content .trip_box .search_box .card input
+{
+    margin-top:3px;
+    padding:5px 0px;
+    border:none;
+    outline:none;
+    font-size:16px;
+}
+header .content .trip_box .search_box input[type="button"]
+{
+    background: black;
+    color:white;
+    border:none;
+    outline:none;
+    padding: 10px 20px;
+    border-radius:20px;
+    transition:0.3s linear;
+    cursor:pointer;
+    font-size:16px;
+}
+
+header .content .trip_box .search_box input[type="button"]:hover
+{
+    background-color: gray;
+    
+}
+header .trip_box .travel_box
+{
+    width:100%;
+    position: relative;
+    top:100px;
+    height: 300px;
+    margin:auto;
+   
+   border-radius:10px;
+   padding-bottom:20px;
+   
+   box-shadow: 0px 20px 25px -10px rgb(165,165,165);
+}
+header .trip_box .travel_box::before /*adding before pseudo class to add bg*/
+{
+   content:'';
+   position:absolute;
+   width:100%;
+   height:100%;
+   border-radius:10px;
+   background: rgb(241,241,241,0.5);
+   backdrop-filter: blur(5px);
+   z-index:-1;
+}
+header .trip_box .travel_box h4
+{
+    font-size:30px;
+   margin:0px;
+   padding:40px 0px 15px 1.7%;
+}
+header .trip_box .travel_box .cards
+{
+    width:95%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+   height:auto;
+   margin:0 auto;
+   
+}
+header .trip_box .travel_box .cards .card
+{
+    width:230px;
+    height:180px;
+    
+}
+header .trip_box .travel_box .cards .card h3
+{
+    margin:0px 0px 10px 10px;
+    display:flex;
+    align-items: center;
+    font-size:20px;
+    font-weight:600;
+}
+header .trip_box .travel_box .cards .card h3 img
+{
+   width: 20px;
+   height:20px;
+   margin-left: 5px;
+}
+header .trip_box .travel_box .cards .card img
+{
+  width: 100%;
+  height: 50%;
+    border-radius:10px;
+    box-shadow: 0px 10px 25px rgb(114,114,114);
+}
+header .trip_box .travel_box .cards .card .button_city
+{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+   
+}
+header .trip_box .travel_box .cards .card .button_city a
+{
+   text-decoration:none;
+   background:black;
+   color:white;
+   border-radius:20px;
+   padding:6px 20px;
+   font-size:16px;
+   transition:0.3s linear;
+}
+header .trip_box .travel_box .cards .card .button_city a:hover
+{
+   background:gray;
+}
+header .trip_box .travel_box .cards .card .button_city h5
+{
+  font-size:14px;
+  font-weight:500;
+  margin:0;
+  margin-top:5px;
+  line-height: 15px;
+}
+header .trip_box .travel_box .cards .card .button_city h5 span
+{
+  font-size:15px;
+  font-weight:800;
+}
+header .adv 
+{
+    display:flex;
+    align-items: center;
+    justify-content:space-around;
+}
+header .adv .points h2{
+    margin:0px 5px;
+    font-size:40px;
+    font-family: 'Times New Roman', Times, serif;
+    color:rgb(15, 16, 16)
+
+}
+header .adv .points p{
+    margin:0px 10px;
+    margin-top:20px;
+    font-size:20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+header .adv .points .pros
+{
+    display:grid;
+    width:70%;
+    height:auto;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap:20px;
+    
+}
+header .adv .points .pros h3
+{
+    font-size:25px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+header .adv .points .pros p
+{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header .adv .imgs
+{
+    width:50%;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    gap:30px;
+
+}
+header .adv .imgs img{
+    width:70%;
+    height:250px;
+    border-radius:10px;
+    box-shadow: 0px 10px 25px rgb(114,114,114);
+}
+.offers 
+{
+    width:60%;
+    height:auto;
+    
+    margin:auto;
+    margin-top:900px;
+}
+.offers h1{
+    font-weight:600;
+    text-align: center;
+    margin:0;
+    font-size:50px;
+
+}
+.offers p{
+    font-weight:500;
+    text-align: center;
+    margin:0;
+    font-size:30px;
+    
+}
+.offers .cards{
+    margin-top:20px;
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+   
+    flex-wrap: wrap;
+}
+.offers .cards .card{
+    position:relative;
+    width:200px;
+    height:350px;
+  
+    margin:10px;
+}
+.offers .cards .card h3{
+    position:relative;
+    width:170px;
+    padding:6px 0px;
+    background:rgb(165,243,165);
+    border-radius:20px;
+    font-size:12px;
+    display:grid;
+    place-items: center;
+    margin:auto;
+    font-size:18px;
+    text-align: center;
+}
+.offers .cards .card .cont{
+    position:relative;
+    width:100%;
+    height:250px;
+    margin-top:5px;
+
+}
+.offers .cards .card .cont img{
+    position:relative;
+    width:100%;
+    height:100%;
+    margin-top:5px;
+    border-radius: 10px 10px 0px 0px;
+}
+.offers .cards .card .cont h4
+{
+    position:absolute;
+    font-size:14px;
+    padding:10px 15px;
+     margin:0;
+    bottom:0;
+    color:rgb(248, 242, 242);
+    z-index:2;
+
+}
+.offers .cards .card .cont h4::before
+{
+    content:'';
+    width:100%;
+    height:100%;
+    background:rgb(255,255,255,0.1);
+    position:absolute;
+    backdrop-filter: blur(5px);
+    z-index:-1;
+    bottom:0;
+    left:0;
+
+}
+.offers .cards .card .cont_box
+{
+    width:99%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    border:1px solid rgb(165, 164, 164);
+    padding:5px 0px;
+    border-radius:0px 0px 5px 5px;
+}
+.offers .cards .card .cont_box .price,.days
+{
+    margin:0px 8px;
+}
+.offers .cards .card .cont_box .price .heart_chat
+{
+    display:flex;
+    align-items:center;
+}
+.offers .cards .card .cont_box .price .heart_chat i:nth-child(1)
+{
+  color:red;
+  font-size:13px;
+  margin-right:10px;
+}
+.offers .cards .card .cont_box .price .heart_chat i span
+{
+ color:black;
+ font-size:14px;
+ margin-left:3px;
+ font-style:normal;
+}
+
+.offers .cards .card .cont_box .price .info_price
+{
+    display:flex;
+    align-items:center;
+    margin-top:3px;
+}
+.offers .cards .card .cont_box .price .info_price a
+{
+    text-decoration:none;
+    font-weight:700;
+    font-size:14px;
+    transition:0.3s linear;
+    margin-right:13px;
+}
+
+.offers .cards .card .cont_box .price .info_price a:hover
+{
+   color:gray;
+}
+.offers .cards .card .cont_box .price .info_price h4
+{
+    margin:0;
+    font-size:15px;
+}
+.offers .cards .card .cont_box .days
+{
+    color:white;
+    background:black;
+    font-size:11px;
+    border-radius:50px;
+padding:10px;
+text-align:center;
+cursor:pointer;
+transition:0.3s linear;
+}
+
+.offers .cards .card .cont_box .days:hover
+{
+transform:rotate(160deg);
+}
+.customer-reviews
+{
+    width:70%;
+    height:auto;
+    display:flex;
+    flex-direction: column;
+    margin:auto;
+    margin-top:90px;
+}
+.customer-reviews h2
+{
+    font-size:50px;
+    font-weight:800;
+    font-family: 'Times New Roman', Times, serif;
+    text-align:center;
+    color:rgb(19, 19, 78)
+}
+.customer-reviews p{
+    font-size:25px;
+    font-weight:500;
+    text-align:center;
+    margin-top:0;
+    color:rgb(70, 70, 72);
+}
+.customer-reviews .review-container
+{
+    width:100%;
+    height:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:20px;
+}
+.customer-reviews .review-container .slides
+{
+    
+    width:100%;
+    height:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+   
+}
+.customer-reviews .review-container .slides .slide
+{
+    
+    margin:0px 20px;
+    width:80%;
+    height:auto;
+    display:none;
+    
+   
+}
+.customer-reviews .review-container .slides .slide .review-image
+{
+   width:70%;
+}
+.displayslide
+{
+ 
+    justify-content:space-between;
+   
+   box-shadow: 0px 10px 25px rgb(114,114,114);
+  padding:20px;
+   background:rgb(241,241,241);
+   overflow:hidden;
+   transition:transform 0.5s ease-in-out;
+   transform: translateX(0);/* Ensure the slide starts from the correct position */
+     animation: slideIn 0.5s ease-in-out; 
+
+} 
+@keyframes slideIn {
+    from {
+        transform: translateX(50%);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.customer-reviews .review-container .slides .slide img
+{
+    width:100%;
+    height:100%;
+    border-radius:30px;
+    object-fit: cover;
+    
+    box-shadow: 0px 10px 25px rgb(114,114,114);
+   
+}
+.customer-reviews .review-container .slides .slide .review-cont
+{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+}
+.customer-reviews .review-container .slides .slide .review-cont p
+{
+    margin-left:20px;
+    text-align: left;
+    
+}
+.customer-reviews .review-container .slides .slide .review-cont h3
+{
+   font-size:25px;
+    
+}
+.customer-reviews .review-container .arrow
+{font-size:55px;
+}
+.customer-reviews .review-container .arrow:hover
+{
+    cursor:pointer;
+    text-shadow: 2px 2px 3px gray;
+
+}
+/*pop window*/
+.popup
+{
+    display:none;
+    position:fixed;
+    z-index:1;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow: auto;
+    padding:20px;
+    background-color:rgba(0,0,0,0.4);
+    
+}
+.popup-content
+{
+    transform: tanslate(-50%,-50%);
+    overflow:auto;
+    font-size:25px;
+    background-color:#fefefe;
+    box-shadow: 0px 10px 25px rgb(32, 32, 32);
+    margin:15% auto;
+    padding:20px;
+    border-radius:20px;
+    border:1px solid #888;
+    width:35%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+
+.popup input[type="text"],input[type="password"]
+{
+    margin:10px 0px;
+    padding:5px;
+    font-size: 25px;
+    border:2px solid black;
+    border-radius: 5px;
+}
+.popup button{
+    margin-top:20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.popup-content #close
+{
+    color:#aaa;
+    margin-left:400px;
+    font-size:48px;
+    font-weight:800;
+}
+#close:hover,
+#close:focus{
+    color:#000;
+    text-decoration:none;
+    cursor:pointer
+}
+.popup .signup{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.popup .signup a{
+    text-decoration: none;
+    background-color: rgb(227, 40, 40);
+    color: white;
+    padding:10px 20px;
+    margin:auto;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+.popup form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*styling footer*/
+footer {
+   
+    z-index:1;
+    position:relative;
+    background-color: #fcf7f7;
+    backdrop-filter: blur(5px);
+    padding: 30px 0;
+    color:rgb(21, 20, 20);
+  }
+  footer::before{
+    margin:0;
+    content:'';
+    position:absolute;
+    width:100%;
+    z-index:-1;
+    height:100%;
+    background-image:url("images/bg1.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    filter:blur(3px);
+    
+  }
+  
+
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    
+  }
+  
+  .footer-section {
+    flex:1;
+   
+    margin:0px 20px;
+  }
+  .footer-section ul
+  {
+    display:flex;
+    flex-direction: column;
+    font-size:20px;
+    line-height: 2;
+  }
+  .footer-section h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section p {
+    line-height: 1.5;
+    font-size:20px;
+    font-weight:600;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-weight:900;
+  }
+  .footer-section a{
+    text-decoration: none;
+    color:rgb(5, 4, 4);
+  }
+  .footer-section a:hover{
+   cursor:pointer;
+  }
+  .footer-bottom p{
+    font-size:25px;
+    
+  }
+  .footer-section .icons
+  {
+    width:30%;
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+  }
+  .footer-section .icons:hover
+  {
+    cursor:pointer;
+  }
