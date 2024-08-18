@@ -1,5 +1,8 @@
 import {Router} from "express";
-import { addPackages, getPackages } from "../controllers/package.controller.js";
+import {addPackages, 
+        getAllPackages,
+        updatePackage,
+        deletePackage} from "../controllers/package.controller.js";
 import {upload} from "../middlewares/multer.middleware.js"
 
 const router = Router();
@@ -13,6 +16,10 @@ router.route("/add").post(
     ]),
     addPackages
 );
-router.route("/getPackages").get(getPackages);
+router.route("/getAll").get(getAllPackages);
+
+router.route("/update").patch(updatePackage);
+
+router.route("/delete").delete(deletePackage);
 
 export default router;
