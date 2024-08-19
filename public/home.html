@@ -300,13 +300,38 @@
     <h2>Login to Your Account</h2>
    
 
-    <form>
-     
-      <input type="text" id="username" name="username" placeholder="👤Username">
-     
-      <input type="password" id="password" name="password" required placeholder="🔑password">
+    <form id="login-form">
+      <input type="text" id="loginUsername" name="username" placeholder="👤 Username or Email" required>
+      <input type="password" id="loginPassword" name="password" required placeholder="🔑 Password">
       <button type="submit">Login</button>
-    </form>
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+      document.getElementById('login-form').addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          const email = document.getElementById('loginUsername').value;
+          const password = document.getElementById('loginPassword').value;
+          console.log(email, password);
+
+          try {
+              // Using axios to send a POST request
+              const response = await axios.post('http://localhost:3000/api/v1/users/login', {
+                  email,
+                  password
+              });
+
+              const data = response.data;
+              alert('User logged in successfully');
+              console.log(data);
+              // Redirect or update UI as needed
+          } catch (error) {
+              console.error(error.response ? error.response.data : error.message);
+              alert('Failed to log in');
+          }
+      });
+  </script>
     <div class="signup">
       <h4>Don't have an account?</h4>
       <a href="#">Sign Up</a>
