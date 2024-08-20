@@ -1,0 +1,90 @@
+{
+    "statusCode": 200,
+    "data": [
+        {
+            "_id": "66c4ddfde86cdaf4366e3c01",
+            "title": "Explore the Majestic Himalayas",
+            "description": "A 7-day trek through the scenic landscapes of the Himalayas, experiencing the culture and natural beauty.",
+            "price": 45000,
+            "duration": 7,
+            "location": "Himachal Pradesh, India",
+            "packageImage1": "https://res.cloudinary.com/dmpelnzhe/image/upload/v1724179916/r5ipzaasnfqejet3nzob.jpg",
+            "packageImage2": "https://res.cloudinary.com/dmpelnzhe/image/upload/v1724179897/ubwpcd4scroeg5mmn7g9.jpg",
+            "packageImage3": "https://res.cloudinary.com/dmpelnzhe/image/upload/v1724179879/elq1mlozfwxgit0zgqnf.jpg",
+            "reviews": [],
+            "bookedBy": [],
+            "overview": "This package offers a once-in-a-lifetime opportunity to trek through the majestic Himalayas, with experienced guides and all necessary amenities provided.",
+            "about": "The trek covers beautiful landscapes, including valleys, rivers, and mountain peaks. You'll also get to interact with the local communities and learn about their way of life.",
+            "daywisePlan": [
+                {
+                    "day": 1,
+                    "activities": [
+                        "Arrival in Himachal Pradesh",
+                        "Briefing and preparation for the trek",
+                        "Acclimatization walk"
+                    ],
+                    "_id": "66c4ddfde86cdaf4366e3c02"
+                },
+                {
+                    "day": 2,
+                    "activities": [
+                        "Start the trek from Base Camp",
+                        "Trek through pine forests",
+                        "Camp overnight in the valley"
+                    ],
+                    "_id": "66c4ddfde86cdaf4366e3c03"
+                },
+                {
+                    "day": 3,
+                    "activities": [
+                        "Trek to the first mountain pass",
+                        "Lunch with a view of the Himalayan range",
+                        "Descend to the next camp"
+                    ],
+                    "_id": "66c4ddfde86cdaf4366e3c04"
+                },
+                {
+                    "day": 4,
+                    "activities": [
+                        "Explore the local villages",
+                        "Interact with the villagers",
+                        "Learn about the local culture"
+                    ],
+                    "_id": "66c4ddfde86cdaf4366e3c05"
+                },
+                {
+                    "day": 5,
+                    "activities": [
+                        "Trek to the second mountain pass",
+                        "Witness the breathtaking sunrise",
+                        "Camp overnight at the peak"
+                    ],
+                    "_id": "66c4ddfde86cdaf4366e3c06"
+                },
+                {
+                    "day": 6,
+                    "activities": [
+                        "Descend to the base camp",
+                        "Relax and enjoy the serene environment",
+                        "Bonfire and cultural night"
+                    ],
+                    "_id": "66c4ddfde86cdaf4366e3c07"
+                },
+                {
+                    "day": 7,
+                    "activities": [
+                        "Morning yoga session",
+                        "Breakfast",
+                        "Departure from Himachal Pradesh"
+                    ],
+                    "_id": "66c4ddfde86cdaf4366e3c08"
+                }
+            ],
+            "createdAt": "2024-08-20T18:18:37.290Z",
+            "updatedAt": "2024-08-20T18:18:37.290Z",
+            "__v": 0
+        }
+    ],
+    "message": "Packages retrieved successfully",
+    "success": true
+}
