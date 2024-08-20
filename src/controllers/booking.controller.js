@@ -21,7 +21,6 @@ const createBooking = asyncHandler(async (req, res) => {
 
     const totalPrice = travelPackage.price * numberOfPeople;
 
-    // Create the booking
     const booking = await Booking.create({
         package: packageId,
         user: userId,

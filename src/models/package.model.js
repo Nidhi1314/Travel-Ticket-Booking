@@ -1,4 +1,4 @@
-import mongoose, {Schema} from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const packageSchema = new Schema(
     {
@@ -10,7 +10,7 @@ const packageSchema = new Schema(
         description: {
             type: String,
             required: true,
-        }, 
+        },
         price: {
             type: Number,
             required: true,
@@ -23,9 +23,14 @@ const packageSchema = new Schema(
             type: String,
             required: true,
         },
-        packageImage: {
-            type: String,
-            required: true
+        packageImage1: {
+            type: String
+        },
+        packageImage2: {
+            type: String
+        },
+        packageImage3: {
+            type: String
         },
         reviews: [
             {
@@ -38,11 +43,31 @@ const packageSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: "Booking"
             }
+        ],
+        overview: {
+            type: String,
+            required: false
+        },
+        about: {
+            type: String,
+            required: false
+        },
+        daywisePlan: [
+            {
+                day: {
+                    type: Number,
+                    required: true
+                },
+                activities: {
+                    type: [String],
+                    required: true
+                }
+            }
         ]
     },
     {
         timestamps: true
     }
-)
+);
 
 export const Package = mongoose.model("Package", packageSchema);
