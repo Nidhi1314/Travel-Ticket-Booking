@@ -36,7 +36,10 @@ app.use('/api/v1/admin', verifyJWT, adminMiddleware, adminRouter);
 import notificationRouter from "./routes/notification.routes.js"
 app.use("api/v1/notification", verifyJWT, notificationRouter );
 
+import bookingRouter from "./routes/booking.routes.js"
+app.use("/api/v1/booking", verifyJWT, bookingRouter)
 
-// http://localhost:3000/api/v1/users/register
+import paymentRoutes from './routes/payment.routes.js';
+app.use('/api/v1/payment', verifyJWT,paymentRoutes);
 
 export {app}
