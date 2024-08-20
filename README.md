@@ -54,6 +54,6 @@ Wanderlust is an online travel booking platform designed to offer a seamless exp
    git clone https://github.com/your-username/wanderlust.git
    cd wanderlust
 ## Team Members
-1.Ronit Raj 2023BMS025
-2.Nidhi Shekhawat 2023BCS040
-3.Jaisurya 2023BEE016
+- 1.Ronit Raj 2023BMS025
+- 2.Nidhi Shekhawat 2023BCS040
+- 3.Jaisurya 2023BEE016
