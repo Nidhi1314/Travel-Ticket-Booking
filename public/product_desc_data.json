@@ -1,0 +1,15 @@
+[
+    {
+        "imagePath1": "img/product_desc_images/paris.jpg",
+        "imagePath2": "img/product_desc_images/paris1.jpg",
+        "imagePath3": "img/product_desc_images/paris2.jpg",
+        "title1": "Image 1",
+	"title2": "Image 2",
+	"title3": "Image 3",
+	"overview": "overview!!!",
+	"about": "say cheese",
+	"day1": "enjoy day 1",
+	"day2": "enjoy day 2",
+	"day3": "enjoy day 3"
+    }
+]

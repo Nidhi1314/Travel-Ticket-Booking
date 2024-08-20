@@ -75,10 +75,10 @@
         <h1>Checkout</h1>
         <div class="booking-summary">
             <h2>Booking Summary</h2>
-            <p><strong>Destination:</strong> Paris</p>
+            <p id="destination"><strong>Destination:</strong> Paris</p>
             <p><strong>Travel Dates:</strong> September 20 - September 27, 2024</p>
             <p><strong>Number of Travelers:</strong> 2 Adults</p>
-            <p><strong>Total Price:</strong> $2,500</p>
+            <p id="cost"><strong>Total Price:</strong> $2,500</p>
         </div>
 
         <form id="checkoutForm">
@@ -115,6 +115,31 @@
         </form>
     </div>
 
-    <script src="checkout.js"></script> <!-- Ensure this is your correct JS file -->
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const index = params.get('index');
+
+        // Function to load and display images
+        async function load() {
+            try {
+                // Example: Fetching the JSON from an API or file
+                const response = await fetch('http://localhost:3002/api/v1/packages/getAll');
+                const data = await response.json();
+
+                document.getElementById("destination").innerHTML = `<p><strong>Destination:</strong> ${data.data[index].location}</p>`;
+                document.getElementById("cost").innerHTML = `<p><strong>Total Price:</strong> ₹${data.data[index].price} + 18% GST = ₹${data.data[index].price + 0.18 * data.data[index].price}</p>`;
+                    
+            } catch (error) {
+                console.error('Error loading the JSON file:', error);
+            }
+        }
+
+        // Load images when the page is fully loaded
+        window.onload = load;
+    
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
