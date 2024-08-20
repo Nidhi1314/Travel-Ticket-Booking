@@ -270,7 +270,7 @@
                 <p style="font-size: 12px">EMI Starts from ₹3173 <a href="#">see option</a></p>
             </div>
             <div class="bottom-section">
-                <button class="book-now">BOOK NOW</button>
+                <button class="book-now" onclick="checkout()">BOOK NOW</button>
                 <button class="submit-query">SUBMIT YOUR QUERY</button>
             </div>
         </div>
@@ -279,7 +279,6 @@
     <script>
         const params = new URLSearchParams(window.location.search);
         const index = params.get('index');
-
 
         // Function to load and display images
         async function loadImages() {
@@ -367,6 +366,10 @@
     
         function scrollToSection(sectionId) {
             document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function checkout() {
+            window.location.href = `checkout.html?index=${index}`;
         }
     </script>
 </body>
