@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profilestyle.css">
+    <title>User Profile - Wanderlust</title>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <a class="navbar-brand" href="home.html">Wanderlust</a>
+        <ul class="navbar-nav">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="profile.html">My Account</a></li>
+        </ul>
+        <a href="profile.html" class="navbar-profile">&#128100;</a>
+    </nav>
+    <div class="profile-header">
+        <h1>Welcome, John Doe</h1> <!-- Replace with dynamic data -->
+    </div>
+    
+    <div class="profile-content">
+        <h2>Account Information</h2>
+        <div class="profile-info">
+            <p><strong>Full Name:</strong> John Doe</p> <!-- Replace with dynamic data -->
+            <p><strong>Email:</strong> john.doe@example.com</p> <!-- Replace with dynamic data -->
+            <p><strong>Username:</strong> johndoe123</p> <!-- Replace with dynamic data -->
+            <h3>Your Bookings</h3>
+            <ul class="bookings-list">
+                <li>Paris, France - 2024-09-15</li> <!-- Replace with dynamic data -->
+                <li>Tokyo, Japan - 2024-12-01</li> <!-- Replace with dynamic data -->
+            </ul>
+        </div>
+    </div>
+</header>
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const response = await fetch('https://0f16-117-250-157-211.ngrok-free.app/api/v1/users/register'); // Replace with your backend URL
+            const userdetails = await response.json();
+             console.log(userdetails.fullName);
+              // Replace static content with dynamic user details
+              
+              document.querySelector('.profile-header h1').textContent = `Welcome, ${userdetails.fullName}`;
+              document.querySelector('.profile-info').innerHTML = `
+                  <p><strong>Full Name:</strong> ${userdetails.fullName}</p>
+                  <p><strong>Email:</strong> ${userdetails.email}</p>
+                  <p><strong>Username:</strong> ${userdetails.username}</p>
+                  <h3>Your Bookings</h3>
+                  <ul class="bookings-list">
+                      ${userdetails.bookings.map(booking => `<li>${booking.destination} - ${booking.date}</li>`).join('')}
+                  </ul>
+              `;
+                
+    
+               
+        } catch (error) {
+            console.error('Error fetching packages:', error);
+        }
+    });
+</script>
+
+
+</body>
+</html>

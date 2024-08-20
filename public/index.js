@@ -87,3 +87,8 @@ Signup.addEventListener('click',()=>
     }
 
 });
+const profile=document.getElementById('profileicon');
+profile.style.cursor='pointer';
+profile.addEventListener('click',()=>{
+         window.location.href="profile.html";
+});
