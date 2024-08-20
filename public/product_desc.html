@@ -283,8 +283,10 @@
         // Function to load and display images
         async function loadImages() {
             try {
+                const apiUrl = process.env.PUBLIC_API_URL;
+
                 // Example: Fetching the JSON from an API or file
-                const response = await fetch('http://localhost:3002/api/v1/packages/getAll');
+                const response = await fetch(`${apiUrl}/api/v1/packages/getAll`);
                 const data = await response.json();
 
                 const container = document.querySelector('div.image-box');

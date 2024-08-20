@@ -122,8 +122,9 @@
         // Function to load and display images
         async function load() {
             try {
+                const apiUrl = process.env.PUBLIC_API_URL;
                 // Example: Fetching the JSON from an API or file
-                const response = await fetch('http://localhost:3002/api/v1/packages/getAll');
+                const response = await fetch(`${apiUrl}/api/v1/packages/getAll`);
                 const data = await response.json();
 
                 document.getElementById("destination").innerHTML = `<p><strong>Destination:</strong> ${data.data[index].location}</p>`;

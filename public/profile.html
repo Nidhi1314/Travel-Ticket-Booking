@@ -31,7 +31,8 @@
 <script>
     document.addEventListener('DOMContentLoaded', async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/v1/users/current-user'); 
+            const apiUrl = process.env.PUBLIC_API_URL;
+            const response = await fetch(`${apiUrl}/api/v1/users/current-user`); 
             // Replace with your backend URL
             console.log(response);
             console.log(response.status);

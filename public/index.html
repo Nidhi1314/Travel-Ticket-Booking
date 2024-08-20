@@ -321,8 +321,9 @@
           console.log(email, password);
 
           try {
+            const apiUrl = process.env.PUBLIC_API_URL;
               // Using axios to send a POST request
-              const response = await axios.post('https://0f16-117-250-157-211.ngrok-free.app/api/v1/users/login', {
+              const response = await axios.post(`${apiUrl}/api/v1/users/login`, {
                   email,
                   password
               });
@@ -382,8 +383,8 @@
           console.log(fullName, email, username, password);
   
           try {
-              
-              const response = await axios.post('https://0f16-117-250-157-211.ngrok-free.app/api/v1/users/register', {
+            const apiUrl = process.env.PUBLIC_API_URL;
+              const response = await axios.post(`${apiUrl}/api/v1/users/register`, {
                   fullName,
                   email,
                   username,
