@@ -6,12 +6,24 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 
 // Add a new package
 const addPackages = asyncHandler(async (req, res) => {
-    const { title, description, price, duration, location } = req.body;
+    let { title, description, price, duration, location, overview, about, daywisePlan } = req.body;
     console.log(req.body);
 
-    // Check if all required fields are provided
-    if ([title, description, price, duration, location].some(field => typeof field !== 'string' || field.trim() === "")) {
-        throw new ApiError(400, "All fields are required and must be non-empty strings");
+    price = Number(price);
+    duration = Number(duration);
+
+    if (
+        !title || typeof title !== 'string' || title.trim() === "" ||
+        !description || typeof description !== 'string' || description.trim() === "" ||
+        isNaN(price) || price <= 0 ||
+        isNaN(duration) || duration <= 0 ||
+        !location || typeof location !== 'string' || location.trim() === ""
+    ) {
+        throw new ApiError(400, "All fields are required and must be non-empty strings or valid positive numbers");
+    }
+
+    if (daywisePlan && !Array.isArray(daywisePlan)) {
+        throw new ApiError(400, "daywisePlan must be an array");
     }
 
     // Check if the package with the same title already exists
@@ -20,25 +32,14 @@ const addPackages = asyncHandler(async (req, res) => {
         throw new ApiError(409, "Package with the same title already exists");
     }
 
-    let packageImageLocalPath;
-    if (req.files && Array.isArray(req.files.packageImage) && req.files.packageImage.length > 0) {
-        packageImageLocalPath = req.files.packageImage[0].path;
-    }
+    // Handle image uploads
+    const packageImage1LocalPath = req.files?.packageImage1?.[0]?.path;
+    const packageImage2LocalPath = req.files?.packageImage2?.[0]?.path;
+    const packageImage3LocalPath = req.files?.packageImage3?.[0]?.path;
 
-    console.log(packageImageLocalPath);
-
-    if (!packageImageLocalPath) {
-        throw new ApiError(400, "Package image is required");
-    }
-
-    // Upload the package image to Cloudinary
-    const packageImage = await uploadOnCloudinary(packageImageLocalPath);
-
-    if (!packageImage) {
-        throw new ApiError(400, "Failed to upload package image to Cloudinary");
-    }
-
-    console.log("Image uploaded", packageImage);
+    const packageImage1 = packageImage1LocalPath ? await uploadOnCloudinary(packageImage1LocalPath) : null;
+    const packageImage2 = packageImage2LocalPath ? await uploadOnCloudinary(packageImage2LocalPath) : null;
+    const packageImage3 = packageImage3LocalPath ? await uploadOnCloudinary(packageImage3LocalPath) : null;
 
     // Create the package
     const _package = await Package.create({
@@ -47,7 +48,12 @@ const addPackages = asyncHandler(async (req, res) => {
         price,
         duration,
         location,
-        packageImage: packageImage?.url || ""
+        packageImage1: packageImage1?.url || "",
+        packageImage2: packageImage2?.url || "",
+        packageImage3: packageImage3?.url || "",
+        overview: overview || "",
+        about: about || "",
+        daywisePlan: Array.isArray(daywisePlan) ? daywisePlan : []
     });
 
     const createdPackage = await Package.findById(_package._id).select("-bookedBy");
@@ -67,16 +73,36 @@ const getAllPackages = asyncHandler(async (req, res) => {
 
 // Update an existing package
 const updatePackage = asyncHandler(async (req, res) => {
-    const { id } = req.params;
-    const { title, description, price, duration, location } = req.body;
+    const { id,title, description, price, duration, location, overview, about, daywisePlan } = req.body;
+    console.log(req.body);
 
-    if (!title || !description || !price || !duration || !location) {
-        throw new ApiError(400, "All fields are required");
-    }
+    // Handle image uploads
+    const packageImage1LocalPath = req.files?.packageImage1?.[0]?.path;
+    const packageImage2LocalPath = req.files?.packageImage2?.[0]?.path;
+    const packageImage3LocalPath = req.files?.packageImage3?.[0]?.path;
+
+    const packageImage1 = packageImage1LocalPath ? await uploadOnCloudinary(packageImage1LocalPath) : null;
+    const packageImage2 = packageImage2LocalPath ? await uploadOnCloudinary(packageImage2LocalPath) : null;
+    const packageImage3 = packageImage3LocalPath ? await uploadOnCloudinary(packageImage3LocalPath) : null;
+
+    // Build the update object dynamically
+    const updateFields = {};
+
+    if (title) updateFields.title = title;
+    if (description) updateFields.description = description;
+    if (!isNaN(price)) updateFields.price = Number(price);
+    if (!isNaN(duration)) updateFields.duration = Number(duration);
+    if (location) updateFields.location = location;
+    if (overview) updateFields.overview = overview;
+    if (about) updateFields.about = about;
+    if (Array.isArray(daywisePlan)) updateFields.daywisePlan = daywisePlan;
+    if (packageImage1) updateFields.packageImage1 = packageImage1?.url || "";
+    if (packageImage2) updateFields.packageImage2 = packageImage2?.url || "";
+    if (packageImage3) updateFields.packageImage3 = packageImage3?.url || "";
 
     const updatedPackage = await Package.findByIdAndUpdate(
         id,
-        { $set: { title, description, price, duration, location } },
+        { $set: updateFields },
         { new: true }
     ).select("");
 
@@ -86,6 +112,7 @@ const updatePackage = asyncHandler(async (req, res) => {
 
     return res.status(200).json(new ApiResponse(200, updatedPackage, "Package updated successfully"));
 });
+
 
 // Delete a package
 const deletePackage = asyncHandler(async (req, res) => {
