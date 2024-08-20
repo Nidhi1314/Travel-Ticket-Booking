@@ -27,7 +27,7 @@ Wanderlust is an online travel booking platform designed to offer a seamless exp
 - **Travel Packages Display**: View and filter available travel packages.
 - **Booking Management**: Ability to book trips and view booking history.
 - **User Dashboard**: Profile management and booking overview.
-- **Responsive Design**: Mobile-friendly layout and design.
+
 
 ### Backend
 - **User Management**: Authentication, authorization, and profile management.
@@ -53,3 +53,7 @@ Wanderlust is an online travel booking platform designed to offer a seamless exp
    ```bash
    git clone https://github.com/your-username/wanderlust.git
    cd wanderlust
+## Team Members
+1.Ronit Raj 2023BMS025
+2.Nidhi Shekhawat 2023BCS040
+3.Jaisurya 2023BEE016
