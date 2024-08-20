@@ -1,6 +1,4 @@
-import mongoose, {Schema} from "mongoose";
-import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
+import mongoose, { Schema } from "mongoose";
 
 const BookingSchema = new Schema(
     {
@@ -18,7 +16,7 @@ const BookingSchema = new Schema(
             type: Date,
             default: Date.now
         },
-        startDate : {
+        startDate: {
             type: Date,
             required: true
         },
@@ -26,15 +24,23 @@ const BookingSchema = new Schema(
             type: Date,
             required: true
         },
+        numberOfPeople: {
+            type: Number,
+            required: true
+        },
         status: {
             type: String,
-            enum: ["pending", "approved", "rejected", "canceled"],
+            enum: ["pending", "approved", "rejected", "canceled", "confirmed"], // Added "confirmed"
             default: "pending"
+        },
+        totalPrice: {
+            type: Number,
+            required: true
         }
     },
     {
         timestamps: true
     }
-)
+);
 
 export const Booking = mongoose.model("Booking", BookingSchema);

@@ -5,9 +5,9 @@ import { Package } from "../models/package.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
 const createReview = asyncHandler(async (req, res) => {
-    const { packageId, userId, rating, comment } = req.body;
+    const { packageId, userId, rating, content } = req.body;
 
-    if (!packageId || !userId || !rating || !comment) {
+    if (!packageId || !userId || !rating || !content) {
         throw new ApiError(400, "All fields are required");
     }
 
@@ -25,7 +25,7 @@ const createReview = asyncHandler(async (req, res) => {
         package: packageId,
         user: userId,
         rating,
-        comment,
+        content,
     });
 
     return res.status(201).json(new ApiResponse(201, review, "Review created successfully"));
@@ -49,9 +49,10 @@ const getPackageReviews = asyncHandler(async (req, res) => {
 });
 
 const updateReview = asyncHandler(async (req, res) => {
-    const { reviewId } = req.params;
-    const { rating, comment } = req.body;
-    const userId = req.user._id;  
+    const { reviewId, rating, comment } = req.body;
+    const userId = req.user._id;
+
+    console.log(req.body);
 
     if (!rating || !comment) {
         throw new ApiError(400, "Rating and comment are required");
@@ -69,12 +70,13 @@ const updateReview = asyncHandler(async (req, res) => {
     review.rating = rating;
     review.comment = comment;
     await review.save();
+    console.log(review);
 
     return res.status(200).json(new ApiResponse(200, review, "Review updated successfully"));
 });
 
 const deleteReview = asyncHandler(async (req, res) => {
-    const { reviewId } = req.params;
+    const { reviewId } = req.body;
     const userId = req.user._id;  // Assuming you have user authentication middleware
 
     const review = await Review.findById(reviewId);
@@ -86,7 +88,7 @@ const deleteReview = asyncHandler(async (req, res) => {
         throw new ApiError(403, "You are not authorized to delete this review");
     }
 
-    await review.remove();
+    await review.deleteOne();
 
     return res.status(200).json(new ApiResponse(200, null, "Review deleted successfully"));
 });
