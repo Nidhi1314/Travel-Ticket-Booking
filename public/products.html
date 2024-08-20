@@ -86,7 +86,7 @@
         async function load() {
             try {
                 // Example: Fetching the JSON from an API or file
-                const response = await fetch('http://localhost:3001/api/v1/packages/getAll');
+                const response = await fetch('http://localhost:3002/api/v1/packages/getAll');
                 const data = await response.json();
             
                 for(let i=0; i < data.data.length; i++)

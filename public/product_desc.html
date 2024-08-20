@@ -285,7 +285,7 @@
         async function loadImages() {
             try {
                 // Example: Fetching the JSON from an API or file
-                const response = await fetch('http://localhost:3001/api/v1/packages/getAll');
+                const response = await fetch('http://localhost:3002/api/v1/packages/getAll');
                 const data = await response.json();
 
                 const container = document.querySelector('div.image-box');
