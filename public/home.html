@@ -303,8 +303,10 @@
     <form id="login-form">
       <input type="text" id="loginUsername" name="username" placeholder="👤 Username or Email" required>
       <input type="password" id="loginPassword" name="password" required placeholder="🔑 Password">
+      <div id="error-message" style="color: red; display: none;">Incorrect Username or Password!</div>
       <button type="submit">Login</button>
   </form>
+  
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <script>
@@ -336,8 +338,12 @@
               console.log(data);
               // Redirect or update UI as needed
           } catch (error) {
+
               console.error(error.response ? error.response.data : error.message);
-              alert('Failed to log in');
+               document.getElementById('loginUsername').value="";
+                document.getElementById('loginPassword').value="";
+              const errormessage=document.getElementById('error-message');
+              errormessage.style.display="block";
           }
       });
   </script>
