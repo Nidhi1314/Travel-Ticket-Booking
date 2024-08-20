@@ -17,7 +17,10 @@
             <li><a href="#">Products</a></li>
             <li><a href="#">Myaccount</a></li>
         </ul>
-        <button id="login">Login/SignUp</button>
+        
+            <i id="profileicon" class="bi bi-person-circle" style="display:none"></i>
+           <button id="login">Login/SignUp</button>
+      
     </nav>
 
     <!--navigation bar close-->
@@ -319,22 +322,22 @@
 
           try {
               // Using axios to send a POST request
-              const response = await axios.post('http://localhost:3000/api/v1/users/login', {
+              const response = await axios.post('https://0f16-117-250-157-211.ngrok-free.app/api/v1/users/login', {
                   email,
                   password
               });
               if(response.status==200)
               {
                 const loginbt=document.getElementById('login');
-                loginbt.innerHTML='<i class="bi bi-person-circle"></i>';
-                loginbt.style.borderRadius="50%";
-                loginbt.style.backgroundColor="white";
+                loginbt.style.display="none";
+                const profile=document.getElementById('profileicon');
+                profile.style.display="block";
                 const popup=document.getElementById('popup');
                 popup.style.display="none";
               }
 
               const data = response.data;
-              alert('User logged in successfully');
+             
               console.log(data);
               // Redirect or update UI as needed
           } catch (error) {
