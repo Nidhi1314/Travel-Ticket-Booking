@@ -5,35 +5,28 @@ import { Booking } from "../models/booking.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { processPayment, processRefund } from "../utils/paymentGateway.js";
 
-// Create a Payment
 const createPayment = asyncHandler(async (req, res) => {
     const { bookingId, paymentMethod } = req.body;
     const userId = req.user._id;
 
-    // Validate required fields
     if (!bookingId || !paymentMethod) {
         throw new ApiError(400, "Booking ID and payment method are required");
     }
 
-    // Check if the booking exists
     const booking = await Booking.findById(bookingId);
     if (!booking) {
         throw new ApiError(404, "Booking not found");
     }
 
-    // Ensure the user is the owner of the booking
     if (booking.user.toString() !== userId.toString()) {
         throw new ApiError(403, "You are not authorized to make a payment for this booking");
     }
 
-    // Calculate the payment amount (assuming booking has a totalPrice field)
     const amount = booking.totalPrice;
 
-    // Process the payment via Square
     try {
         const transactionId = await processPayment({ amount, paymentMethod });
 
-        // Save the payment in the database
         const payment = await Payment.create({
             booking: bookingId,
             user: userId,
@@ -49,7 +42,6 @@ const createPayment = asyncHandler(async (req, res) => {
     }
 });
 
-// Get Payment Details
 const getPaymentDetails = asyncHandler(async (req, res) => {
     const { paymentId } = req.params;
 
@@ -66,7 +58,6 @@ const getPaymentDetails = asyncHandler(async (req, res) => {
     return res.status(200).json(new ApiResponse(200, payment, "Payment details fetched successfully"));
 });
 
-// Get User Payments
 const getUserPayments = asyncHandler(async (req, res) => {
     const userId = req.user._id;
 
@@ -75,7 +66,6 @@ const getUserPayments = asyncHandler(async (req, res) => {
     return res.status(200).json(new ApiResponse(200, payments, "User payments fetched successfully"));
 });
 
-// Refund Payment
 const refundPayment = asyncHandler(async (req, res) => {
     const { paymentId } = req.params;
 

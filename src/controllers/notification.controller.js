@@ -3,9 +3,6 @@ import { ApiError } from "../utils/ApiError.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { sendEmail } from "../utils/email.js";
 
-// @desc    Create a new notification
-// @route   POST /api/notifications
-// @access  Private
 export const createNotification = asyncHandler(async (req, res) => {
     const { user, message, type } = req.body;
 
@@ -19,31 +16,24 @@ export const createNotification = asyncHandler(async (req, res) => {
         type,
     });
 
-    // Send email notification
     await sendEmail({
-        email: user.email, // Assuming the user object has an email field
+        email: user.email, 
         subject: "New Notification",
         message: `You have a new notification: ${message}`,
-        html: `<p>You have a new notification: ${message}</p>`, // Optional: HTML content
+        html: `<p>You have a new notification: ${message}</p>`, 
     });
 
     res.status(201).json(notification);
 });
 
-// @desc    Get notifications for the logged-in user
-// @route   GET /api/notifications
-// @access  Private
 export const getNotifications = asyncHandler(async (req, res) => {
     const notifications = await Notification.find({ user: req.user._id })
-        .sort({ createdAt: -1 }) // Sort by latest first
+        .sort({ createdAt: -1 }) 
         .exec();
 
     res.status(200).json("notifications");
 });
 
-// @desc    Mark a notification as read
-// @route   PUT /api/notifications/:id/read
-// @access  Private
 export const markAsRead = asyncHandler(async (req, res) => {
     const { id } = req.params;
 
@@ -53,7 +43,6 @@ export const markAsRead = asyncHandler(async (req, res) => {
         throw new ApiError(404, "Notification not found");
     }
 
-    // Check if the notification belongs to the logged-in user
     if (notification.user.toString() !== req.user._id.toString()) {
         throw new ApiError(403, "You do not have permission to mark this notification as read");
     }
@@ -64,9 +53,6 @@ export const markAsRead = asyncHandler(async (req, res) => {
     res.status(200).json(notification);
 });
 
-// @desc    Delete a notification
-// @route   DELETE /api/notifications/:id
-// @access  Private
 export const deleteNotification = asyncHandler(async (req, res) => {
     const { id } = req.params;
 
@@ -76,7 +62,6 @@ export const deleteNotification = asyncHandler(async (req, res) => {
         throw new ApiError(404, "Notification not found");
     }
 
-    // Check if the notification belongs to the logged-in user
     if (notification.user.toString() !== req.user._id.toString()) {
         throw new ApiError(403, "You do not have permission to delete this notification");
     }
