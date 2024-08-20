@@ -1,81 +1,432 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <style>
-    .product-container {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .product-card {
-      width: 250px;
-      border-radius: 10px;
-      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-
-    .product-content {
-      padding: 20px;
-    }
-
-    .product-content h2 {
-      font-size: 18px;
-      margin-bottom: 5px;
-    }
-
-    .rating {
-      color: orange;
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-
-    .product-content p {
-      font-size: 14px;
-      line-height: 1.5;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-    }
-
-    .book-now {
-      background-color: #4285F4;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-transform: uppercase;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="stylehome.css">
 </head>
 <body>
-  <div class="product-container">
-    <div class="product-card">
-      <img src="image1.jpg" alt="Situ Cileunca">
-      <div class="product-content">
-        <h2>Situ Cileunca</h2>
-        <div class="rating">★ ★ ★ ★ ☆ (100 Reviews)</div>
-        <p>A large artificial lake surrounded by trees with a golden bridge named "Bridge...</p>
-        <button class="book-now">Book Now</button>
+
+  <header>
+    <nav>
+        <h2>Wanderlust</h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="#">Myaccount</a></li>
+        </ul>
+        
+            <i id="profileicon" class="bi bi-person-circle" style="display:none"></i>
+           <button id="login">Login/SignUp</button>
+      
+    </nav>
+
+    <!--navigation bar close-->
+
+    <div class="content">
+      <div class="cont_box">
+        <h1>Your passport to unforgettable adventures</h1>
+        <p>Discover the world with us</p>
+        <button>start your search</button>
       </div>
+      <div class="trip_box">
+        <div class="search_box">
+              <div  class="card">
+                <h4>location<i class="bi bi-caret-down-fill"></i></h4>
+                <input type="text" placeholder="Enter your destination">
+              </div>
+              <div  class="card">
+                <h4>Date<i class="bi bi-caret-down-fill"></i></h4>
+                <input type="date">
+              </div>
+              <div  class="card">
+                <h4>people<i class="bi bi-caret-down-fill"></i></h4>
+                <input type="number" placeholder="Enter number of people">
+              </div>
+              <input type="button" value="explore now">
+        </div>
+        <div class="travel_box">
+            <h4>Countries to Travel</h4>
+            <div class="cards">
+              <div class="card">
+              <h3>INDIA<img src="images/india.png"></h3>
+              <img src="images/mumbai.png" alt="india image">
+              <div class="button_city">
+                <a href="#">Read More</a>
+                <h5>Mumbai Central<br><span>$4650</span></h5>
+              </div>
+              </div>
+              <div class="card">
+                <h3>UNITED STATES<img src="images/usa.png"></h3>
+              <img src="images/newyork.jpg" alt="india image">
+              <div class="button_city">
+                <a href="#">Read More</a>
+                <h5>New York<br><span>$8450</span></h5>
+              </div>
+              </div>
+              <div class="card">
+                <h3>RUSSIA<img src="images/russia.png"></h3>
+              <img src="images/moscow.jpg" alt="india image">
+              <div class="button_city">
+                <a href="#">Read More</a>
+                <h5>Moscow<br><span>$7650</span></h5>
+              </div>
+              </div>
+              <div class="card">
+                <h3>SPAIN<img src="images/spain.png"></h3>
+              <img src="images/basillica.jpg" alt="india image">
+              <div class="button_city">
+                <a href="#">Read More</a>
+                <h5>Basillica<br><span>$9650</span></h5>
+              </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    
     </div>
-    <div class="product-card">
-      <img src="image2.jpg" alt="Situ Bagendit">
-      <div class="product-content">
-        <h2>Situ Bagendit</h2>
-        <div class="rating">★ ★ ★ ★ ☆ (10 Reviews)</div>
-        <p>Tourist activities that can be done at Situ Bagendit include enjoying...</p>
-        <button class="book-now">Book Now</button>
+    <div class="adv">
+      <div class="points">
+        <h2>What are our<br>advantages compared<br>to others</h2>
+      <p> ⭐⭐⭐you are guaranteed to get the<br>best service from us, we make<br>sure you are satisfied 😊</p>
+      <div class="pros">
+        <div class="pro">
+          
+          <h3>🔶Lot of Choices</h4>
+          <p>There are many choices of<br>interesting places to make a story<br>in your journey</p>
+      </div>
+      <div class="pro">
+        
+        <h3>🏠Easy Booking</h4>
+        <p>we will make your order as<br>soon as possible and nothing<br>can beat it</p>
+    </div>
+    <div class="pro">
+      
+      <h3>🔍Best Tour Guide</h4>
+      <p>we have a team of guides who can<br>satisfy you to explore the beauty<br>of this world</p>
+  </div>
+  <div class="pro">
+   
+    <h3>🚌Accomodation</h4>
+    <p>There are many choices of<br>interesting places to make a story<br>in your journey</p>
+</div>
+      </div>
+
+    </div>
+    <div class="imgs">
+      <img src="images/maps.jpg" height="150px">
+      <img src="images/guide.jpg" height="150px">
+      <img src="images/holiday.jpg" height="150px">
+     </div>
+  </div>
+  </header>
+  <div class="offers">
+    <h1>Best Tour Packages offers for you</h1>
+    <p>Choose your next destination</p>
+    <div class="cards">
+      <div class="card">
+        <h3>lotus-Dehli</h3>
+        <div class="cont">
+          <img src="images/lotus.jpg">
+          <h4>Included: Air ticket, Hotel, Breakfast, Tours, Transport</h4>
+        </div>
+        <div class="cont_box">
+          <div class="price">
+            <div class="heart_chat">
+              <i class="bi bi-heart-fill"><span>86415</span></i>
+              <i class="bi bi-chat-fill"><span>4586</span></i>
+            </div>
+            <div class="info_price">
+              <a href="#">More Info</a>
+              <h4>$2648</h4>
+            </div>
+        </div>
+        <div class="days">5 days<br>India</div>
+      </div>
+      </div>
+      <div class="card">
+        <h3>Burj-Khalifa-DXB</h3>
+        <div class="cont">
+          <img src="images/burj.jpg">
+          <h4>Included: Air ticket, Hotel, Breakfast, Tours, Transport</h4>
+        </div>
+        <div class="cont_box">
+          <div class="price">
+            <div class="heart_chat">
+              <i class="bi bi-heart-fill"><span>86415</span></i>
+              <i class="bi bi-chat-fill"><span>4586</span></i>
+            </div>
+            <div class="info_price">
+              <a href="#">More Info</a>
+              <h4>$2648</h4>
+            </div>
+        </div>
+        <div class="days">5 days<br>DUBAI</div>
+      </div>
+      </div>
+      <div class="card">
+        <h3>Pyramids-Egypt</h3>
+        <div class="cont">
+          <img src="images/egypt.jpg">
+          <h4>Included: Air ticket, Hotel, Breakfast, Tours, Transport</h4>
+        </div>
+        <div class="cont_box">
+          <div class="price">
+            <div class="heart_chat">
+              <i class="bi bi-heart-fill"><span>86415</span></i>
+              <i class="bi bi-chat-fill"><span>4586</span></i>
+            </div>
+            <div class="info_price">
+              <a href="#">More Info</a>
+              <h4>$2648</h4>
+            </div>
+        </div>
+        <div class="days">7 days<br>Egypt</div>
+      </div>
+      </div>
+      <div class="card">
+        <h3>Mountains-Vietnam</h3>
+        <div class="cont">
+          <img src="images/vietnam.jpg">
+          <h4>Included: Air ticket, Hotel, Breakfast, Tours, Transport</h4>
+        </div>
+        <div class="cont_box">
+          <div class="price">
+            <div class="heart_chat">
+              <i class="bi bi-heart-fill"><span>86415</span></i>
+              <i class="bi bi-chat-fill"><span>4586</span></i>
+            </div>
+            <div class="info_price">
+              <a href="#">More Info</a>
+              <h4>$2648</h4>
+            </div>
+        </div>
+        <div class="days">7 days<br>Vietnam</div>
+      </div>
       </div>
     </div>
   </div>
+  <div class="customer-reviews">
+    <h2>Happy & Satisfied Faces</h2>
+    <p>Here's what some of our satisfied customers have to say about our work</p>
+  
+    <div class="review-container">
+      <div class="arrow">
+        <i class="bi bi-arrow-left-circle-fill" onclick="prevslide()"></i>
+      </div>
+      <div class="slides">
+        <div class="slide">
+          <div class="review-image">
+            <img src="images/john.jpg" alt="">
+          </div>
+          <div class="review-cont">
+            <p>WanderRust is the best travel agency I have ever come across. They have the best tour packages and the best tour guides. I would recommend WanderRust to anyone who wants to travel.</p>
+            <p>⭐⭐⭐⭐⭐</p>
+            <h3>Jone Copper</h3>
+
+         </div>
+         </div>
+
+         <div class="slide">
+          <div class="review-image">
+            <img src="images/alexa.jpg" alt="">
+          </div>
+          <div class="review-cont">
+            <p>"Amazing site! Booked my dream vacation in minutes. Can't wait to explore!"
+
+            </p>
+            <p>⭐⭐⭐⭐⭐</p>
+            <h3>alexa soe</h3>
+
+         </div>
+         </div>
+
+         <div class="slide">
+          <div class="review-image">
+            <img src="images/emily.jpg" alt="">
+          </div>
+          <div class="review-cont">
+            <p>"The accommodation options on Wander Rust are vast and varied. I was able to find the perfect place for my budget and preferences."</p>
+            <p>⭐⭐⭐⭐</p>
+            <h3>Emily jose</h3>
+
+         </div>
+         </div>
+
+        </div>
+        <div class="arrow">
+          <i class="bi bi-arrow-right-circle-fill" onclick="nextslide()"></i>
+        </div>
+        
+        </div>
+      </div>
+    
+<!--footer-->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <h2>Wanderlust</h2>
+        <p>Wanderlust is your go-to travel booking site, offering a wide range of customizable travel packages. Discover, plan, and book your next adventure with ease, all in one place.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">products</a></li>
+          <li><a href="#">login/signup</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p><i class="bi bi-envelope"></i>wanderlust@gmail.com</p>
+        <p><i class="bi bi-telephone"></i>+1(302) 931-4524</p>
+        <p class="icons"><i class="bi bi-facebook"></i><i class="bi bi-instagram"></i><i class="bi bi-twitter"></i></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <P>Made with ❣️</P>
+      <p>&copy;Wanderlust. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!--adding login window-->
+<div id="popup" class="popup">
+  
+  <div class="popup-content">
+    
+    <span id="close">&times;</span>
+    <h2>Login to Your Account</h2>
+   
+
+    <form id="login-form">
+      <input type="email" id="loginUsername" name="username" placeholder="👤 Email" required>
+      <input type="password" id="loginPassword" name="password" required placeholder="🔑 Password">
+      <div id="error-message" style="color: red; display: none;">Incorrect Username or Password!</div>
+      <button type="submit">Login</button>
+  </form>
+  
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+      document.getElementById('login-form').addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          const email = document.getElementById('loginUsername').value;
+          const password = document.getElementById('loginPassword').value;
+          console.log(email, password);
+
+          try {
+              // Using axios to send a POST request
+              const response = await axios.post('https://0f16-117-250-157-211.ngrok-free.app/api/v1/users/login', {
+                  email,
+                  password
+              });
+              if(response.status==200)
+              {
+                const loginbt=document.getElementById('login');
+                loginbt.style.display="none";
+                const profile=document.getElementById('profileicon');
+                profile.style.display="block";
+                const popup=document.getElementById('popup');
+                popup.style.display="none";
+              }
+
+              const data = response.data;
+             
+              console.log(data);
+              // Redirect or update UI as needed
+          } catch (error) {
+
+              console.error(error.response ? error.response.data : error.message);
+               document.getElementById('loginUsername').value="";
+                document.getElementById('loginPassword').value="";
+              const errormessage=document.getElementById('error-message');
+              errormessage.style.display="block";
+          }
+      });
+  </script>
+    <div class="signup">
+      <h4>Don't have an account? <a id="signuplink" href="#">SignUp</a></h4>
+     
+    </div>
+  
+  </div>
+</div>
+<!--signup window-->
+<div id="signup" class="popup">
+  <div class="popup-content">
+    <span id="close" onclick="document.getElementById('signup').style.display='none'">&times;</span>
+    <h2>Sign Up for Your Account</h2>
+
+    <form id="signup-form">
+      <input type="text" id="fullName" name="fullName" placeholder="👤 Full Name" required>
+      <input type="email" id="email" name="email" placeholder="📧 Email" required>
+      <input type="text" id="username" name="username" placeholder="👤 Username" required>
+      <input type="password" id="password" name="password" required placeholder="🔑 Password">
+      <div id="signup-error-message" style="color: red; display: none;">This user already exits!</div>
+      <button type="submit">Create Account</button>
+    </form>
+    <script>
+      document.getElementById('signup-form').addEventListener('submit', async (e) => {
+          e.preventDefault();
+  
+          const fullName = document.getElementById('fullName').value;
+          const email = document.getElementById('email').value;
+          const username = document.getElementById('username').value;
+          const password = document.getElementById('password').value;
+          console.log(fullName, email, username, password);
+  
+          try {
+              
+              const response = await axios.post('https://0f16-117-250-157-211.ngrok-free.app/api/v1/users/register', {
+                  fullName,
+                  email,
+                  username,
+                  password
+              });
+  
+              if (response.status == 201) { // Assuming 201 for successful creation
+                  const loginbt = document.getElementById('login');
+                  loginbt.style.display = "none";
+                  const profile = document.getElementById('profileicon');
+                  profile.style.display = "block";
+                  const popup = document.getElementById('signup');
+                  popup.style.display = "none";
+              }
+  
+              const data = response.data;
+              console.log(data);
+              // Redirect or update UI as needed
+              alert('Account created successfully!');
+          } catch (error) {
+              console.error(error.response ? error.response.data : error.message);
+              // Clear fields on error
+              document.getElementById('fullName').value = "";
+              document.getElementById('email').value = "";
+              document.getElementById('username').value = "";
+              document.getElementById('password').value = "";
+  
+              // Display an error message below the form
+              const errormessage = document.getElementById('signup-error-message');
+              errormessage.style.display = "block";
+              
+          }
+      });
+      const fields = document.querySelectorAll('#signup-form input');
+       fields.forEach(x=> {
+        x.addEventListener('input', () => {
+            const errormessage = document.getElementById('signup-error-message');
+            errormessage.style.display = "none";})
+      });
+  </script>
+  
+  </div>
+</div>
+<script src="index.js"></script> 
 </body>
 </html>
