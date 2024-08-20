@@ -357,6 +357,7 @@
   
   </div>
 </div>
+<!--signup window-->
 <div id="signup" class="popup">
   <div class="popup-content">
     <span id="close" onclick="document.getElementById('signup').style.display='none'">&times;</span>
@@ -367,12 +368,67 @@
       <input type="email" id="email" name="email" placeholder="📧 Email" required>
       <input type="text" id="username" name="username" placeholder="👤 Username" required>
       <input type="password" id="password" name="password" required placeholder="🔑 Password">
+      <div id="signup-error-message" style="color: red; display: none;">This user already exits!</div>
       <button type="submit">Create Account</button>
     </form>
+    <script>
+      document.getElementById('signup-form').addEventListener('submit', async (e) => {
+          e.preventDefault();
+  
+          const fullName = document.getElementById('fullName').value;
+          const email = document.getElementById('email').value;
+          const username = document.getElementById('username').value;
+          const password = document.getElementById('password').value;
+          console.log(fullName, email, username, password);
+  
+          try {
+              
+              const response = await axios.post('https://0f16-117-250-157-211.ngrok-free.app/api/v1/users/register', {
+                  fullName,
+                  email,
+                  username,
+                  password
+              });
+  
+              if (response.status == 201) { // Assuming 201 for successful creation
+                  const loginbt = document.getElementById('login');
+                  loginbt.style.display = "none";
+                  const profile = document.getElementById('profileicon');
+                  profile.style.display = "block";
+                  const popup = document.getElementById('signup');
+                  popup.style.display = "none";
+              }
+  
+              const data = response.data;
+              console.log(data);
+              // Redirect or update UI as needed
+              alert('Account created successfully!');
+          } catch (error) {
+              console.error(error.response ? error.response.data : error.message);
+              // Clear fields on error
+              document.getElementById('fullName').value = "";
+              document.getElementById('email').value = "";
+              document.getElementById('username').value = "";
+              document.getElementById('password').value = "";
+  
+              // Display an error message below the form
+              const errormessage = document.getElementById('signup-error-message');
+              errormessage.style.display = "block";
+              
+          }
+      });
+      const inputs = document.querySelectorAll('#signup-form input');
+       inputs.forEach(input=> {
+        input.addEventListener('input', () => {
+            const errormessage = document.getElementById('signup-error-message');
+            errormessage.style.display = "none";})
+      });
+  </script>
+  
   </div>
 </div>
 
 
-   <script src="index.js"></script> 
+<script src="index.js"></script> 
 </body>
 </html>
