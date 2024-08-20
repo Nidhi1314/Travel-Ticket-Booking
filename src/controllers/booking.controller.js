@@ -35,35 +35,27 @@ const createBooking = asyncHandler(async (req, res) => {
     let transactionId;
 
     try {
-        // Process payment
-        console.log("Starting payment processing");
         transactionId = await processPayment(totalPrice, paymentMethod );
-        console.log("Transaction ID returned: ", transactionId);
         
         if (!transactionId) {
             throw new ApiError(500, "Payment failed: No transaction ID returned");
         }
 
-        console.log("Booking controller transactionId: " + transactionId);
-
-        // Save payment details
         await Payment.create({
             booking: booking._id,
             user: userId,
             amount: totalPrice, 
             paymentMethod,
             paymentStatus: "completed",
-            transactionId, // Ensure this value is correctly assigned
+            transactionId
         });
 
     } catch (error) {
-        // If payment processing fails, delete the booking
         await Booking.findByIdAndDelete(booking._id);
         console.error('Error processing booking:', error);
         throw new ApiError(500, "Booking failed: Payment processing error");
     }
 
-    // Populate booking details
     const createdBooking = await Booking.findById(booking._id)
         .populate('package', 'title location')
         .populate('user', 'fullName email');
