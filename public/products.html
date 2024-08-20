@@ -48,94 +48,6 @@
     </div>
 
     <section class="package-list">
-
-        <div class="package">
-            <img src="img/package_icon/1.jpg" alt="Superior Australia">
-            <div class="package-info">
-                <h3>Superior Australia</h3>
-                <p>3N Melbourne | 2N Cairns | 3N Gold Coast | 3N Sydney</p>
-                <div class="rating">
-                    <span>⭐ 4.5</span>
-                    <span>(300 Reviews)</span>
-                </div>
-                <div class="icons">
-                    <span>🏨 Hotel</span>
-                    <span>🎫 Sightseeing</span>
-                    <span>🚗 Transfer</span>
-                    <span>🍽️ Meal</span>
-                    <span>✈️ Flight</span>
-                </div>
-                <p>Starting from <strong>₹ 235761</strong></p>
-                <button>Customize & Book</button>
-            </div>
-        </div>
-        
-
-        <div class="package">
-            <img src="path/to/image1.jpg" alt="Superior Australia">
-            <div class="package-info">
-                <h3>Superior Australia</h3>
-                <p>3N Melbourne | 2N Cairns | 3N Gold Coast | 3N Sydney</p>
-                <div class="rating">
-                    <span>⭐ 4.5</span>
-                    <span>(300 Reviews)</span>
-                </div>
-                <div class="icons">
-                    <span>🏨 Hotel</span>
-                    <span>🎫 Sightseeing</span>
-                    <span>🚗 Transfer</span>
-                    <span>🍽️ Meal</span>
-                    <span>✈️ Flight</span>
-                </div>
-                <p>Starting from <strong>₹ 235761</strong></p>
-                <button>Customize & Book</button>
-            </div>
-        </div>
-        
-
-        <div class="package">
-            <img src="path/to/image1.jpg" alt="Superior Australia">
-            <div class="package-info">
-                <h3>Superior Australia</h3>
-                <p>3N Melbourne | 2N Cairns | 3N Gold Coast | 3N Sydney</p>
-                <div class="rating">
-                    <span>⭐ 4.5</span>
-                    <span>(300 Reviews)</span>
-                </div>
-                <div class="icons">
-                    <span>🏨 Hotel</span>
-                    <span>🎫 Sightseeing</span>
-                    <span>🚗 Transfer</span>
-                    <span>🍽️ Meal</span>
-                    <span>✈️ Flight</span>
-                </div>
-                <p>Starting from <strong>₹ 235761</strong></p>
-                <button>Customize & Book</button>
-            </div>
-        </div>
-        
-        
-        <div class="package">
-            <img src="path/to/image1.jpg" alt="Superior Australia">
-            <div class="package-info">
-                <h3>Superior Australia</h3>
-                <p>3N Melbourne | 2N Cairns | 3N Gold Coast | 3N Sydney</p>
-                <div class="rating">
-                    <span>⭐ 4.5</span>
-                    <span>(300 Reviews)</span>
-                </div>
-                <div class="icons">
-                    <span>🏨 Hotel</span>
-                    <span>🎫 Sightseeing</span>
-                    <span>🚗 Transfer</span>
-                    <span>🍽️ Meal</span>
-                    <span>✈️ Flight</span>
-                </div>
-                <p>Starting from <strong>₹ 235761</strong></p>
-                <button>Customize & Book</button>
-            </div>
-        </div>
-
     </section>
 
     <section class="faq">
@@ -169,5 +81,45 @@
     <footer>
         <p>&copy; 2024 Australia Holiday Packages. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        async function load() {
+            try {
+                // Example: Fetching the JSON from an API or file
+                const response = await fetch('http://localhost:3001/api/v1/packages/getAll');
+                const data = await response.json();
+            
+                for(let i=0; i < data.data.length; i++)
+                {
+                    document.querySelector(".package-list").innerHTML += `
+                    		<div class="package">
+                                <img src=${data.data[i].packageImage1} alt="Superior Australia">
+                                <div class="package-info">
+                                <h3>${data.data[i].title}</h3>
+                                <div class="rating">
+                                    <span>⭐ 4.5</span>
+                                    <span>(300 Reviews)</span>
+                                </div>
+                                <div class="icons">
+                                    <span>🏨 Hotel</span>
+                                    <span>🎫 Sightseeing</span>
+                                    <span>🚗 Transfer</span>
+                                    <span>🍽️ Meal</span>
+                                    <span>✈️ Flight</span>
+                                </div>
+                            <p>Starting from <strong>₹${data.data[0].price}</strong></p>
+                            <a href="product_desc.html?index=${i}" style="text-decoration: none;"><button>Customize & Book</button></a>
+                        </div>
+                    </div>
+                    `;
+                }
+
+            } catch (error) {
+                console.error('Error loading the JSON file:', error);
+            }
+        }
+        window.onload = load;
+
+    </script>
 </body>
 </html>
