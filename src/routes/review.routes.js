@@ -3,15 +3,16 @@ import {createReview,
         getPackageReviews,
         updateReview,
         deleteReview} from "../controllers/review.controller.js";
+import { verifyJWT } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
-router.route("/create").post(createReview);
+router.route("/create").post(verifyJWT, createReview);
 
-router.route("/getPackageReview").get(getPackageReviews);
+router.route("/getReviews").get(verifyJWT, getPackageReviews);
 
-router.route("/update").patch(updateReview);
+router.route("/update").patch(verifyJWT, updateReview);
 
-router.route("/delete").delete(deleteReview);
+router.route("/delete").delete(verifyJWT, deleteReview);
 
 export default router;

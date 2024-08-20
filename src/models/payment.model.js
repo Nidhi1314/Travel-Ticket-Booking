@@ -1,43 +1,38 @@
 import mongoose, { Schema } from "mongoose";
 
-const paymentSchema = new Schema(
+const PaymentSchema = new Schema(
     {
         booking: {
             type: Schema.Types.ObjectId,
             ref: "Booking",
-            required: true,
+            required: true
         },
         user: {
             type: Schema.Types.ObjectId,
             ref: "User",
-            required: true,
+            required: true
         },
         amount: {
             type: Number,
-            required: true,
+            required: true
         },
         paymentMethod: {
-            type: String, // e.g., "credit card", "debit card", "paypal"
-            required: true,
+            type: String,
+            required: true
         },
         paymentStatus: {
-            type: String, // e.g., "completed", "pending", "failed"
-            required: true,
-            default: "pending",
+            type: String,
+            enum: ["pending", "completed", "failed"],
+            default: "pending"
         },
         transactionId: {
             type: String,
-            required: true,
-            unique: true,
-        },
-        refundStatus: {
-            type: String, // e.g., "not requested", "requested", "completed"
-            default: "not requested",
-        },
+            required: true // Ensure this is marked as required
+        }
     },
     {
-        timestamps: true,
+        timestamps: true
     }
 );
 
-export const Payment = mongoose.model("Payment", paymentSchema);
+export const Payment = mongoose.model("Payment", PaymentSchema);
