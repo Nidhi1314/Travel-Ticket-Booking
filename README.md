@@ -1,6 +1,4 @@
 # wanderlust
-
-## Project Title
 **Wanderlust**: A comprehensive travel booking site that allows users to explore travel packages, book trips, and manage their reservations.
 
 ## Project Description
