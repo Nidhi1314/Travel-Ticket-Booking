@@ -74,41 +74,16 @@ function prevslide()
 nextBtn.addEventListener('click', nextslide);
 prevBtn.addEventListener('click', prevslide);
 
-// const slides = document.querySelectorAll('.slide');
-// const prevBtn = document.querySelector('.bi-arrow-left-circle-fill');
-// const nextBtn = document.querySelector('.bi-arrow-right-circle-fill');
-// let slideIndex = 0;
-// console.log(slides);
-
-// // Initially hide all slides except the first
-// slides.forEach((slide, index) => {
-//   if (index !== 0) {
-//     slide.style.display = 'none';
-//   }
-// });
-
-// function showSlide(n) {
-//     slides.forEach((slide, index) => {
-//         slide.style.transform
-//      = `translateX(${index * -100}%)`;
-//         slide.classList.remove('active');
-//       });
+const Signup=document.getElementById('signuplink');
+const signup=document.getElementById('signup');
+Signup.addEventListener('click',()=>
+{
+    popup.style.display="none";
+    signup.style.display="block";
     
-//       slides[slideIndex].classList.add('active');
-// }
+    close.onclick=()=>
+    {
+        signup.style.display="none";
+    }
 
-// // Initial slide
-// showSlide(slideIndex);
-
-// // Automatic slide change
-// setInterval(() => {
-//   showSlide(slideIndex + 1);
-// }, 3000); // Change slide every 3 seconds
-
-// prevBtn.addEventListener('click', () => {
-//   showSlide(slideIndex - 1);
-// });
-
-// nextBtn.addEventListener('click', () => {
-//   showSlide(slideIndex + 1);
-// });
+});

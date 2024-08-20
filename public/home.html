@@ -321,6 +321,15 @@
                   email,
                   password
               });
+              if(response.status==200)
+              {
+                const loginbt=document.getElementById('login');
+                loginbt.innerHTML='<i class="bi bi-person-circle"></i>';
+                loginbt.style.borderRadius="50%";
+                loginbt.style.backgroundColor="white";
+                const popup=document.getElementById('popup');
+                popup.style.display="none";
+              }
 
               const data = response.data;
               alert('User logged in successfully');
@@ -333,12 +342,27 @@
       });
   </script>
     <div class="signup">
-      <h4>Don't have an account?</h4>
-      <a href="#">Sign Up</a>
+      <h4>Don't have an account? <a id="signuplink" href="#">SignUp</a></h4>
+     
     </div>
   
   </div>
 </div>
+<div id="signup" class="popup">
+  <div class="popup-content">
+    <span id="close" onclick="document.getElementById('signup').style.display='none'">&times;</span>
+    <h2>Sign Up for Your Account</h2>
+
+    <form id="signup-form">
+      <input type="text" id="fullName" name="fullName" placeholder="👤 Full Name" required>
+      <input type="email" id="email" name="email" placeholder="📧 Email" required>
+      <input type="text" id="username" name="username" placeholder="👤 Username" required>
+      <input type="password" id="password" name="password" required placeholder="🔑 Password">
+      <button type="submit">Create Account</button>
+    </form>
+  </div>
+</div>
+
 
    <script src="index.js"></script> 
 </body>
